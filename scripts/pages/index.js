@@ -1,28 +1,15 @@
     async function getPhotographers() {
-        // TODO : Replace with data from the JSON file
-        const photographers = [
-            {
-                "name": "My test data",
-                "id": 1,
-                "city": "London",
-                "country": "UK",
-                "tagline": "This is my test data",
-                "price": 400,
-                "portrait": "account.png"
-            },
-            {
-                "name": "Other test data",
-                "id": 2,
-                "city": "Londres",
-                "country": "UK",
-                "tagline": "This is my other test data",
-                "price": 500,
-                "portrait": "account.png"
-            },
-        ]
-        // Return photographer array only once
-        return ({
-            photographers: [...photographers, ...photographers, ...photographers]})
+        let response = await fetch ('http://127.0.0.1:5500/data/photographers.json');
+
+        if (!response.ok){
+        throw new Error("HTTP error" + response.status);
+        }
+        
+        let photographers = await response.json();
+        console.log(photographers);
+      
+         // TO DO: Error handling
+        return photographers;
     }
 
     async function displayData(photographers) {
@@ -32,6 +19,8 @@
             const photographerModel = photographerFactory(photographer);
             const userCardDOM = photographerModel.getUserCardDOM();
             photographersSection.appendChild(userCardDOM);
+
+            console.log(photographerModel);
         });
     };
 
