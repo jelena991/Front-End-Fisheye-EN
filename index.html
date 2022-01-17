@@ -1,24 +1,42 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye</title>
-  </head>
-  <body>
-    <header>
-        <img src="assets/images/logo.png" class="logo" />
-        <h1>Our photographers</h1>
-    </header>
-    <main id="main">
-        <div class="photographer_section">
-          
-        </div>
-    </main>
-    <script src="scripts/factories/Photographer.js"></script>
-    <script src="scripts/pages/index.js"></script>
-    <script src="scripts/pages/photographer.js"></script>
-  </body>
+<html lang="en">
+
+<head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <title>Fisheye</title>
+</head>
+
+<body>
+  <header>
+    <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" />
+    <h1>Our photographers</h1>
+  </header>
+  <main id="main">
+    <div class="photographer_section">
+      <template id="photographer-card-template">
+        <article>
+          <a href="">
+            <img src="" alt="">
+            <h2></h2>
+          </a>
+          <p>
+            <span id="location"></span>
+            <span id="tagline"></span>
+            <span id="price"></span>
+          </p>
+        </article>
+      </template>
+    </div>
+  </main>
+
+  
+
+  <script src="scripts/factories/Photographer.js"></script>
+  <script src="scripts/pages/index.js"></script>
+  
+</body>
+
 </html>

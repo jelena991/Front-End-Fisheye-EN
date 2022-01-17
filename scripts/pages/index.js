@@ -1,5 +1,5 @@
     async function getPhotographers() {
-        let response = await fetch ('http://127.0.0.1:5500/data/photographers.json');
+        let response = await fetch ('http://127.0.0.1:5501/data/photographers.json');
 
         if (!response.ok){
         throw new Error("HTTP error" + response.status);
@@ -12,12 +12,14 @@
         return photographers;
     }
 
-    async function displayData(photographers) {
+    function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer_section");
+        const template = document.getElementById('photographer-card-template');
+
 
         photographers.forEach((photographer) => {
-            const photographerModel = photographerFactory(photographer);
-            const userCardDOM = photographerModel.getUserCardDOM();
+            const photographerModel = new Photographer(photographer);
+            const userCardDOM = photographerModel.createCard(template);
             photographersSection.appendChild(userCardDOM);
 
             console.log(photographerModel);
