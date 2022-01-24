@@ -1,9 +1,10 @@
 class Media {
-    constructor ({id, photographerId, title, image, likes, date, price}){
+    constructor ({id, photographerId, title, image, video, likes, date, price}){
         this.id = id;
         this.photographerId = photographerId;
         this.title = title;
         this.image = image;
+        this.video = video; 
         this.likes = likes; 
         this.date = date; 
         this.price = price;
@@ -11,11 +12,19 @@ class Media {
 
     createMedia (template){
         const element = template.content.cloneNode(true);
-         // TO DO: Change Mimi to Photographer Name
-        const image = `assets/samplePhotos/Mimi/${this.image}`;
+         
+        if (this.image ) {
+            const image = `assets/samplePhotos/${this.photographerId}/${this.image}`;
+            
+            element.querySelector('img').setAttribute("src", image);
+
+        } else {
+            const video = `assets/samplePhotos/${this.photographerId}/${this.video}`;
+            element.querySelector('video').setAttribute("src", video);
+
+        }
 
         element.querySelector('p').textContent = this.title;
-        element.querySelector('img').setAttribute("src", image);
 
         return element;
     }
