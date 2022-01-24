@@ -14,18 +14,17 @@
     <img src="assets/images/logo.png" class="logo" />
   </header>
   <main id="main">
+    <!-- template for the heading  -->
     <template id="photographer-page-template">
-      <article>
-        <h2></h2>
-        <p>
-          <span id="location"></span>
-          <span id="tagline"></span>
-        </p>
-        <div class="photograph-header">
+      <div class="photograph-header">
+        <article id="photographer-page-heading">
+          <h2></h2>
+          <p>
+          </p>
           <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-        </div>
-        <img src="" alt="">
-      </article>
+          <img src="" alt="">
+        </article>
+      </div>
     </template>
   </main>
   <div id="contact_modal">
@@ -43,8 +42,35 @@
       </form>
     </div>
   </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <!--Gallery-->
+  <div id="gallery">
+    <div class="dropdown">
+      <label>Order by
+        <select name="orderBy" id="orderBy">
+          <option value="popularity">Popularity</option>
+          <option value="date">Date</option>
+          <option value="title">Title</option>
+        </select>
+      </label>
+    </div>
+   
+    <template id="gallery-template">
+      <img src="" alt="">
+      <p></p>
+      <i aria-label="likes"></i>
+    </template>
+  </div>
+
   <script src="scripts/pages/photographer.js"></script>
   <script src="scripts/factories/Photographer.js"></script>
+  <script src="scripts/factories/media.js"></script>
   <script src="/scripts/utils/contactForm.js"></script>
 </body>
 

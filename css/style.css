@@ -5,7 +5,6 @@ body {
     margin: 0;
 }
 
-
 header {
     display: flex;
     flex-direction: row;
@@ -13,8 +12,6 @@ header {
     align-items: center;
     height: 90px;
 }
-
-
 
 h1 {
     color: #901C1C;
@@ -65,4 +62,9 @@ article {
 
 #price {
     font-weight: 100;
+}
+
+img {
+    height: 200px;
+    width: 200px;
 }

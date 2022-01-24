@@ -81,3 +81,8 @@ article img {
     border-radius: 50%;
     object-fit: cover;
 }
+
+img {
+    height: 200px;
+    width: 200px;
+}
