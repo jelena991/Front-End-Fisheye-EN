@@ -1,88 +1,198 @@
 #contact_modal {
-    display: none;
+  display: none;
 }
 
+/*photograph header*/
 .photograph-header {
-    background-color: #FAFAFA;
-    height: 300px;
-    margin: 0 100px;
+  background-color: #fafafa;
+  margin: 100px;
+}
+
+.photograph-header img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.photographer-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 5vh;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+@media (max-width: 800px) {
+  .photographer-card {
+    flex-direction: column;
+  }
+
+  .photographer-card-text {
+    text-align: center;
+  }
+}
+
+.photographer-card:nth-child(2) {
+  order: 2;
+}
+
+.photographer-card-text h2 {
+  color: #bf5138;
+}
+.photographer-card-text h3 {
+  color: #901c1c;
+}
+
+.photographer-card-text p {
+  font-weight: 100;
 }
 
 .contact_button {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    padding: 11px;
-    width: 170px;
-    height: 70px;
-    border: none;
-    background-color: #901C1C;
-    border-radius: 5px;
-    cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  padding: 11px;
+  width: 170px;
+  height: 70px;
+  border: none;
+  background-color: #901c1c;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .modal {
-    border-radius: 5px;
-    background-color: #DB8876;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 35px;
-    margin: auto;
+  border-radius: 5px;
+  background-color: #db8876;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 35px;
+  margin: auto;
 }
 
 .modal header {
-    justify-content: space-between;
-    width: 100%;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .modal header img {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .modal header h2 {
-    font-size: 64px;
-    font-weight: normal;
-    text-align: center;
+  font-size: 64px;
+  font-weight: normal;
+  text-align: center;
 }
 
 form {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 form label {
-    color: #312E2E;
-    font-size: 36px;
+  color: #312e2e;
+  font-size: 36px;
 }
 
 form div {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: self-start;
-    margin-bottom: 26px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: self-start;
+  margin-bottom: 26px;
 }
 
 form input {
-    width: 100%;
-    height: 68px;
-    border: none;
-    border-radius: 5px;
+  width: 100%;
+  height: 68px;
+  border: none;
+  border-radius: 5px;
+}
+/*Order by*/
+.select {
+  margin-left: 100px;
+}
+#orderBy {
+  color: #fafafa;
+  font-size: 13px;
+  padding: 10px 8px 10px 14px;
+  margin: 10px;
+  background: #901c1c;
+  border: none;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
 }
 
-article img {
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
-    object-fit: cover;
+/*Gallery*/
+
+#gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 100px;
+  gap: 50px;
+}
+.image-container {
+  height: 30rem;
+  width: 30rem;
+  padding: 2%;
 }
 
-img {
-    height: 200px;
-    width: 200px;
+.image-container img {
+  height: 30rem;
+  width: 30rem;
+  object-fit: cover;
+}
+
+.image-container video {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.image-text {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: #901c1c;
+  font-weight: 100;
+}
+
+.image-title {
+  flex: 1;
+  align-self: flex-start;
+}
+
+.image-text span {
+  color: #901c1c;
+  font-size: 1.2rem;
+  font-weight: 100;
+  padding-right: 10px;
+}
+
+.image-text i {
+  color: #901c1c;
+}
+
+/*Photographer rating and price box on bottom of the page*/
+
+.photographer-rate {
+  background-color: #db8876;
+  align-items: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  bottom: 0;
+  display: flex;
+  height: 3rem;
+  justify-content: space-around;
+  position: fixed;
+  right: 2vw;
+  width: 15rem;
 }

@@ -19,11 +19,13 @@ class Photographer {
         element.querySelector('h2').textContent = this.name;
         element.querySelector('img').setAttribute("src", picture);
         
-        element.querySelector('p').textContent = `${this.city}, ${this.country} \n ${this.tagline} \n $${this.price}/day`;
-        //element.getElementById('location').innerText = `${this.city}, ${this.country} \n`;
-
-        //element.querySelector('tagline').textContent = `${this.tagline} \n`;
-        //element.querySelector('price').textContent = `$${this.price}/day`;
+        element.querySelector('h3').textContent = `${this.city}, ${this.country}`;
+        element.querySelector('p').textContent = `${this.tagline} \n`;
+        if (element.querySelector('span')) {
+            
+            element.querySelector('span').textContent = `$${this.price}/day`;
+        }
+        
 
         return element;
     }

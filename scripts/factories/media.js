@@ -25,6 +25,7 @@ class Media {
         }
 
         element.querySelector('p').textContent = this.title;
+        element.querySelector('span').textContent = this.likes;
 
         return element;
     }

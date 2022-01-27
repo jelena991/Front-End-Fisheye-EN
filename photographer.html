@@ -6,7 +6,8 @@
   <meta charset="utf-8">
   <link rel="icon" type="image/png" href="assets/icons/close.svg">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-  <title>Fisheye - photographe </title>
+  <script src="https://kit.fontawesome.com/d21300426d.js" crossorigin="anonymous"></script>
+  <title>Fisheye - photographer </title>
 </head>
 
 <body>
@@ -17,59 +18,82 @@
     <!-- template for the heading  -->
     <template id="photographer-page-template">
       <div class="photograph-header">
-        <article id="photographer-page-heading">
-          <h2></h2>
-          <p>
-          </p>
-          <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <div class="photographer-card">
+          <div class="photographer-card-text">
+            <h2></h2>
+            <h3></h3>
+            <p></p>
+          </div>
+          <button class="contact_button" onclick="displayModal()">Contact me</button>
           <img src="" alt="">
-        </article>
+        </div>
+      </div>
+      <div class="select">
+        <label> Order by
+          <select name="orderBy" id="orderBy">
+            <option value="popularity">Popularity</option>
+            <option value="date">Date</option>
+            <option value="title">Title</option>
+          </select>
+      </div>
+      <!--Box bottom-->
+      <div class="photographer-rate">
+        <span></span>
+        <span class="likes"> 35
+        </span>
+        <i class="fas fa-heart" aria-label="likes" aria-hidden="true"></i>
+      </div>
+      <div id="contact_modal" role="dialog" aria-labelledby="contact form" aria-describedby="Please enter your information">
+        <div class="modal">
+          <header>
+            <h2>Contact me</h2>
+            <img src="assets/icons/close.svg" onclick="closeModal()" />
+          </header>
+          <form>
+            <div class="formData">
+              <label for="first">First name</label>
+              <input type="text" id="first" name="first">
+            </div>
+            <div class="formData">
+              <label for="last">Last name</label>
+              <input type="text" id="last" name="last">
+            </div>
+            <div class="formData">
+              <label for="email">Email</label>
+              <input type="text" id="email" name="email" pattern=".+@.+\..+">
+            </div>
+            <div class="formData">
+              <textarea name= "message" rows="10" cols="118"></textarea>
+            </div>
+            <button class="contact_button">Send</button>
+          </form>
+        </div>
+      </div>
+      <div class="dialog-overlay">
+        
       </div>
     </template>
+
   </main>
-  <div id="contact_modal">
-    <div class="modal">
-      <header>
-        <h2>Contact me</h2>
-        <img src="assets/icons/close.svg" onclick="closeModal()" />
-      </header>
-      <form>
-        <div>
-          <label>First name</label>
-          <input />
-        </div>
-        <button class="contact_button">Send</button>
-      </form>
-    </div>
-  </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+
+
   <!--Gallery-->
   <div id="gallery">
-    <div class="dropdown">
-      <label>Order by
-        <select name="orderBy" id="orderBy">
-          <option value="popularity">Popularity</option>
-          <option value="date">Date</option>
-          <option value="title">Title</option>
-        </select>
-      </label>
-    </div>
-   
     <template id="gallery-template">
-      <img src="" alt="">
-      <video src="" type="video/mp4">
-        
-      </video>
-      <p></p>
-      <i aria-label="likes"></i>
+      <div class="image-container">
+        <img src="" alt="">
+        <!--  <video src="" type="video/mp4">
+        </video> -->
+        <div class="image-text">
+          <p class="image-title"></p>
+          <span class="likes"> </span>
+          <i class="fas fa-heart" aria-label="likes" aria-hidden="true"></i>
+        </div>
+      </div>
     </template>
   </div>
+
+
 
   <script src="scripts/pages/photographer.js"></script>
   <script src="scripts/factories/Photographer.js"></script>
