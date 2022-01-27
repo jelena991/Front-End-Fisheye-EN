@@ -12,10 +12,10 @@
 
 <body>
   <header>
-    <img src="assets/images/logo.png" class="logo" />
+    <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" /></a>
   </header>
   <main id="main">
-    <!-- template for the heading  -->
+    <!-- TEMPLATE FOR PHOTOGRAPHER HEADING -->
     <template id="photographer-page-template">
       <div class="photograph-header">
         <div class="photographer-card">
@@ -28,6 +28,8 @@
           <img src="" alt="">
         </div>
       </div>
+
+      <!--ODER BY-->
       <div class="select">
         <label> Order by
           <select name="orderBy" id="orderBy">
@@ -36,17 +38,19 @@
             <option value="title">Title</option>
           </select>
       </div>
-      <!--Box bottom-->
+      <!--BOX WITH RATES AND LIKES-->
       <div class="photographer-rate">
-        <span></span>
-        <span class="likes"> 35
-        </span>
+        <p class="photographer-rate-likes">297 081</p>
         <i class="fas fa-heart" aria-label="likes" aria-hidden="true"></i>
+        <span class="photographer-rate-price"></span>
       </div>
-      <div id="contact_modal" role="dialog" aria-labelledby="contact form" aria-describedby="Please enter your information">
-        <div class="modal">
+      <!--FORM-->
+      <div id="contact_modal" class="bground">
+        <div class="modal" role="dialog" aria-hidden="true" aria-labelledby="contact form"
+          aria-describedby="ContactPhotographer">
           <header>
             <h2>Contact me</h2>
+            <h2></h2>
             <img src="assets/icons/close.svg" onclick="closeModal()" />
           </header>
           <form>
@@ -63,25 +67,26 @@
               <input type="text" id="email" name="email" pattern=".+@.+\..+">
             </div>
             <div class="formData">
-              <textarea name= "message" rows="10" cols="118"></textarea>
+              <label for="message">Your message</label>
+              <textarea name="message" rows="10" cols="50"></textarea>
             </div>
             <button class="contact_button">Send</button>
           </form>
         </div>
+
       </div>
-      <div class="dialog-overlay">
-        
-      </div>
+      <!-- <div class="modal-overlay">
+      </div> -->
+
     </template>
 
   </main>
 
-
-  <!--Gallery-->
+  <!--GALLERY-->
   <div id="gallery">
     <template id="gallery-template">
       <div class="image-container">
-        <img src="" alt="">
+        <img src="" alt="" onclick="openLightbox();currentSlide(event)">
         <!--  <video src="" type="video/mp4">
         </video> -->
         <div class="image-text">
@@ -95,10 +100,24 @@
 
 
 
+  <div id="lightbox-modal" class="lightbox-modal">
+    <div id="lightbox-content" role="dialog" aria-label="Image closeup">
+      <template id="lightbox-template">
+        <img src="" alt="">
+        <i id="close" class="fas fa-times" aria-label="Close image" onclick="closeLightbox()"></i>
+        <i id="rightArr" class="fas fa-chevron-right"></i>
+        <i id="leftArr" class="fas fa-chevron-left"></i>
+      </template>
+    </div>
+  </div>
+
+
+
   <script src="scripts/pages/photographer.js"></script>
   <script src="scripts/factories/Photographer.js"></script>
   <script src="scripts/factories/media.js"></script>
   <script src="/scripts/utils/contactForm.js"></script>
+  <script src="/scripts/utils/lightbox.js"></script>
 </body>
 
 </html>

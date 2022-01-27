@@ -2,7 +2,7 @@
   display: none;
 }
 
-/*photograph header*/
+/*PHOTOGRAPHER PAGE HEADER*/
 .photograph-header {
   background-color: #fafafa;
   margin: 100px;
@@ -48,7 +48,7 @@
 .photographer-card-text p {
   font-weight: 100;
 }
-
+/*CONTACT BUTTON*/
 .contact_button {
   font-size: 20px;
   font-weight: bold;
@@ -62,6 +62,19 @@
   cursor: pointer;
 }
 
+/*MODAL CONTACT FORM*/
+.bground {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
 .modal {
   border-radius: 5px;
   background-color: #db8876;
@@ -72,6 +85,12 @@
   justify-content: space-between;
   padding: 35px;
   margin: auto;
+  
+  /* z-index: 2;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
 }
 
 .modal header {
@@ -88,6 +107,26 @@
   font-weight: normal;
   text-align: center;
 }
+
+/*.modal-overlay {
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-overlay[aria-hidden="true"],
+.modal[aria-hidden="true"] {
+  display: none;
+}
+
+.modal-overlay:not([aria-hidden="true"]),
+.modal:not([aria-hidden="true"]) {
+  display: block;
+}*/
 
 form {
   display: flex;
@@ -115,7 +154,7 @@ form input {
   border: none;
   border-radius: 5px;
 }
-/*Order by*/
+/*ORDER BY STYLING*/
 .select {
   margin-left: 100px;
 }
@@ -131,8 +170,7 @@ form input {
   overflow: hidden;
 }
 
-/*Gallery*/
-
+/*GALLERY*/
 #gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -182,7 +220,6 @@ form input {
 }
 
 /*Photographer rating and price box on bottom of the page*/
-
 .photographer-rate {
   background-color: #db8876;
   align-items: center;
@@ -190,9 +227,20 @@ form input {
   border-top-right-radius: 5px;
   bottom: 0;
   display: flex;
+  justify-content: space-between;
   height: 3rem;
-  justify-content: space-around;
   position: fixed;
   right: 2vw;
   width: 15rem;
+  padding: 5px;
+}
+
+.photographer-rate-price{
+  flex: 1;
+  padding-left: 50px;
+}
+
+/*LIGHTBOX*/  
+.lightbox-modal {
+  display: none;
 }

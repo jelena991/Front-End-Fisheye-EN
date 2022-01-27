@@ -45,6 +45,19 @@ function displayMedia(media) {
 
 };
 
+function displayLightbox(media) {
+    const lightbox = document.getElementById("lightbox-content");
+    console.log ("pictures are: ", media);
+    const template = document.getElementById("lightbox-template");
+
+    media.forEach((picture) => {
+        const mediaModel = new Media(picture);
+        const mediaDOM = mediaModel.createMedia(template);
+        lightbox.appendChild(mediaDOM);
+    });
+
+}
+
 async function init() {
     // Retreive photographer data
     const { photographers, media } = await getData();
@@ -57,6 +70,8 @@ async function init() {
  
     const filteredMedia = media.filter(item => item.photographerId.toString() === photographerId);
     displayMedia(filteredMedia);
+ 
+    displayLightbox(filteredMedia);
 };
 
 init();

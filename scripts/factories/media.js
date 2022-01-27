@@ -17,15 +17,21 @@ class Media {
             const image = `assets/samplePhotos/${this.photographerId}/${this.image}`;
             
             element.querySelector('img').setAttribute("src", image);
+            element.querySelector('img').setAttribute("id", this.id);
 
-        } else {
+        } 
+       /*  else {
             const video = `assets/samplePhotos/${this.photographerId}/${this.video}`;
             element.querySelector('video').setAttribute("src", video);
+        } */
 
+        if (element.querySelector('p')){
+            element.querySelector('p').textContent = this.title;
         }
-
-        element.querySelector('p').textContent = this.title;
-        element.querySelector('span').textContent = this.likes;
+      
+        if (element.querySelector('span')){
+            element.querySelector('span').textContent = this.likes;
+        }
 
         return element;
     }
