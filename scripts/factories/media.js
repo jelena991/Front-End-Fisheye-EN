@@ -12,18 +12,25 @@ class Media {
 
     createMedia (template){
         const element = template.content.cloneNode(true);
-         
+
+        const imageElement = element.querySelector('img');
+        const videoElement = element.querySelector('video');
+
         if (this.image ) {
+           
             const image = `assets/samplePhotos/${this.photographerId}/${this.image}`;
             
             element.querySelector('img').setAttribute("src", image);
             element.querySelector('img').setAttribute("id", this.id);
-
+           
+            videoElement.remove();
         } 
-       /*  else {
+       else {
             const video = `assets/samplePhotos/${this.photographerId}/${this.video}`;
             element.querySelector('video').setAttribute("src", video);
-        } */
+            
+            imageElement.remove();
+        }
 
         if (element.querySelector('p')){
             element.querySelector('p').textContent = this.title;

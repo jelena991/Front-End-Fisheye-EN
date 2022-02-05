@@ -32,10 +32,10 @@
       <!--ODER BY-->
       <div class="select">
         <label> Order by
-          <select name="orderBy" id="orderBy">
-            <option value="popularity">Popularity</option>
-            <option value="date">Date</option>
-            <option value="title">Title</option>
+          <select id="orderBy" name="orderBy">
+            <option id="popularity" value="popularity">Popularity</option>
+            <option id="date" value="date">Date</option>
+            <option id="title" value="title">Title</option>
           </select>
       </div>
       <!--BOX WITH RATES AND LIKES-->
@@ -86,9 +86,9 @@
   <div id="gallery">
     <template id="gallery-template">
       <div class="image-container">
-        <img src="" alt="" onclick="openLightbox();currentSlide(event)">
-        <!--  <video src="" type="video/mp4">
-        </video> -->
+        <img src="" alt="">
+        <video src="" type="video/mp4" autoplay muted>
+        </video>
         <div class="image-text">
           <p class="image-title"></p>
           <span class="likes"> </span>
@@ -97,18 +97,21 @@
       </div>
     </template>
   </div>
+  <!--LIGHTBOX-->
+  <div id="gallery-lightbox" class="gallery-lightbox">
+    <template id="lightbox-template">
 
-
-
-  <div id="lightbox-modal" class="lightbox-modal">
-    <div id="lightbox-content" role="dialog" aria-label="Image closeup">
-      <template id="lightbox-template">
+      <div id="gallery-lightbox-media" role="dialog" aria-label="Image closeup">
         <img src="" alt="">
-        <i id="close" class="fas fa-times" aria-label="Close image" onclick="closeLightbox()"></i>
-        <i id="rightArr" class="fas fa-chevron-right"></i>
-        <i id="leftArr" class="fas fa-chevron-left"></i>
-      </template>
-    </div>
+        <video src="" type="video/mp4" autoplay muted>
+      </div>
+      <div class="gallery-lightbox-controls">
+        <i class="gallery-lightbox-close" class="fas fa-times" aria-label="Close image"></i>
+        <i class="gallery-lightbox-rightArr" class="fas fa-chevron-right"></i>
+        <i class="gallery-lightbox-leftArr" class="fas fa-chevron-left"></i>
+      </div>
+
+    </template>
   </div>
 
 

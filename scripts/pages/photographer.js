@@ -37,26 +37,95 @@ function displayMedia(media) {
     console.log ("media in displayMedia are: ", media)
     const template = document.getElementById('gallery-template');
     
+    let mediaArray = [];
+
     media.forEach((picture) => {
         const mediaModel = new Media(picture);
         const mediaDOM = mediaModel.createMedia(template);
         gallery.appendChild(mediaDOM);
-    }); 
 
+        mediaArray.push(mediaModel);
+    }); 
+    return mediaArray;
 };
 
-function displayLightbox(media) {
-    const lightbox = document.getElementById("lightbox-content");
-    console.log ("pictures are: ", media);
-    const template = document.getElementById("lightbox-template");
+function displayLightbox(mediaArray) {
 
-    media.forEach((picture) => {
-        const mediaModel = new Media(picture);
-        const mediaDOM = mediaModel.createMedia(template);
-        lightbox.appendChild(mediaDOM);
-    });
+    const template = document.getElementById('lightbox-template');
 
+    const lightboxModel = new Gallery(mediaArray, template);
+
+    const rootElement = document.getElementById('gallery-lightbox');
+    lightboxModel.create(rootElement);
 }
+
+function changeOrder(filteredMedia) {
+    const select = document.getElementById('orderBy');
+    console.log("SELECT", select.value);
+    select.addEventListener("change", function(){
+        console.log("ecent is", this.value);
+        orderBy(filteredMedia, this.value);
+    });  
+}
+
+function orderBy(filteredMedia, sortValue){
+
+    console.log('POZVANO');
+    
+    if (sortValue === 'date'){
+         removeMedia();
+    displayMedia(filteredMedia.sort(byDate));
+    console.log('ordered by date');
+    } else if (sortValue === 'popularity') {
+        removeMedia();
+        displayMedia(filteredMedia.sort(byPopularity));
+        console.log('ordered by popularity');   
+    } else if (sortValue === 'title') {
+        removeMedia();
+        displayMedia(filteredMedia.sort(byTitle));
+        console.log('ordered by title');
+    }
+}
+
+function removeMedia() {
+    const gallery = document.getElementById("gallery");
+    while(gallery.lastChild.id !== 'gallery-template'){
+        gallery.removeChild(gallery.lastChild);
+    }
+}
+
+/*Compare by title*/
+
+function byTitle(a,b){
+    if (a.title > b.title){
+        return 1; 
+    } else if (b.title > a.title) {
+        return -1;
+    } else {
+        return 0;
+    }
+
+    /** OPTION 2
+     * function byTitle(a,b){
+     *      return a.compareTo(b);
+     * }
+     */
+}
+
+/*Compare by popularity*/
+
+function byPopularity(a, b){
+    //subtraction will give a positive, negative or zero as result 
+    return b.likes - a.likes;
+}
+
+/*Compare by date*/
+
+function byDate(a, b){
+    //yeat, month, day
+    return new Date(a.date).valueOf() - new Date(b.date).valueOf(); //timestamps
+}
+
 
 async function init() {
     // Retreive photographer data
@@ -69,10 +138,13 @@ async function init() {
     console.log("ID", photographerId)
  
     const filteredMedia = media.filter(item => item.photographerId.toString() === photographerId);
-    displayMedia(filteredMedia);
- 
-    displayLightbox(filteredMedia);
-};
+
+    const mediaArray = displayMedia(filteredMedia);
+    displayLightbox(mediaArray);
+
+    changeOrder(filteredMedia);
+    
+ };
 
 init();
 
