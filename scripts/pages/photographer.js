@@ -51,6 +51,12 @@ function displayMedia(media) {
     return mediaArray;
 };
 
+function displayNameInForm(name){
+    const nameForm = document.getElementById('name');
+    nameForm.textContent = name;
+}
+
+
 function displayLightbox(mediaArray) {
 
     const template = document.getElementById('lightbox-template');
@@ -146,7 +152,6 @@ function displayRate (price) {
 }
 
 
-
 async function init() {
     // Retreive photographer data
     const { photographers, media } = await getData();
@@ -159,6 +164,9 @@ async function init() {
  
     const filteredMedia = media.filter(item => item.photographerId.toString() === photographerId);
 
+    const name = photographers.filter(item => item.id.toString() === photographerId)[0].name;
+
+    displayNameInForm(name)
     //DISPLAY GALLERY
     const mediaArray = displayMedia(filteredMedia);
     displayLightbox(mediaArray);
@@ -169,9 +177,7 @@ async function init() {
 
     const price = photographers.filter(item => item.id.toString() === photographerId)[0].price;
     displayRate(price);
-
-    
-    
+ 
  };
 
 init();

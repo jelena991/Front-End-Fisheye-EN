@@ -10,11 +10,18 @@ function closeModal() {
 
 
 
+/* function logToConsole() {
+    
+    const formData = document.querySelector("form");
+    const firstName = formData.elements['name'];
+    //const element = formData.elements;
 
+    console.log ("First name: ", firstName.value);
 
-
-
-
+    //console.log ("Last name: ", element.lastName.value);
+    //console.log ("Email: ", element.email.value);
+    //console.log ("Message: ", element.message.value);
+} */
 
   /**
     * ON DIALOG OPEN, SET FOCUS:

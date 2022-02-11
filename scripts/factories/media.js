@@ -12,7 +12,7 @@ class Media {
 
     createMedia (template){
         const element = template.content.cloneNode(true);
-        this.element = element;
+        
 
         const imageElement = element.querySelector('img');
         const videoElement = element.querySelector('video');
@@ -37,24 +37,28 @@ class Media {
         }
       
 
-        //LAJKOVI ISPOD SLIKE
+        //LIKES ON SINGLE PICTURE
+
         if (element.querySelector('span')){
             element.querySelector('span').textContent = this.likes;
-            //console.log("Element 1", element);
-
+            element.querySelector('span').setAttribute('id', `S${this.id}`); 
+    
             element.getElementById('likes-button').addEventListener("click", this.addLikes.bind(this));
         }
-       
-
-       
+    
         return element;
     }
 
-
     addLikes(event) {
-        console.log("Element 2", event);
-        this.likes++
-        console.log("ADDED", this.likes);
-        this.element.querySelector('span').textContent = this.likes;
+        const sumLikes = document.getElementById(`S${this.id}`);
+        sumLikes.textContent = this.likes++;
+        console.log("SUM IS", this.likes);
+
+        //add likes to box 
+
+        const currentLikes = document.getElementById('sumLikes').textContent++;
+        console.log("CURRENT LIKES", currentLikes);
     }
+
+
 }
