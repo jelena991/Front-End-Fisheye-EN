@@ -21,10 +21,11 @@ class Photographer {
         
         element.querySelector('h3').textContent = `${this.city}, ${this.country}`;
         element.querySelector('p').textContent = `${this.tagline} \n`;
-        if (element.querySelector('span')) {
-            
-            element.querySelector('span').textContent = `$${this.price}/day`;
+       
+        if (element.getElementById('price')){
+            element.getElementById('price').textContent = `$${this.price}/day`;
         }
+
         
 
         return element;

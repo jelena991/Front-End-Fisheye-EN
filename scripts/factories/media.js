@@ -12,6 +12,7 @@ class Media {
 
     createMedia (template){
         const element = template.content.cloneNode(true);
+        this.element = element;
 
         const imageElement = element.querySelector('img');
         const videoElement = element.querySelector('video');
@@ -24,8 +25,7 @@ class Media {
             element.querySelector('img').setAttribute("id", this.id);
            
             videoElement.remove();
-        } 
-       else {
+        } else {
             const video = `assets/samplePhotos/${this.photographerId}/${this.video}`;
             element.querySelector('video').setAttribute("src", video);
             
@@ -36,10 +36,25 @@ class Media {
             element.querySelector('p').textContent = this.title;
         }
       
+
+        //LAJKOVI ISPOD SLIKE
         if (element.querySelector('span')){
             element.querySelector('span').textContent = this.likes;
-        }
+            //console.log("Element 1", element);
 
+            element.getElementById('likes-button').addEventListener("click", this.addLikes.bind(this));
+        }
+       
+
+       
         return element;
+    }
+
+
+    addLikes(event) {
+        console.log("Element 2", event);
+        this.likes++
+        console.log("ADDED", this.likes);
+        this.element.querySelector('span').textContent = this.likes;
     }
 }

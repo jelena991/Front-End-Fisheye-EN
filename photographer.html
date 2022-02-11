@@ -33,17 +33,12 @@
       <div class="select">
         <label> Order by
           <select id="orderBy" name="orderBy">
-            <option id="popularity" value="popularity">Popularity</option>
             <option id="date" value="date">Date</option>
+            <option id="popularity" value="popularity">Popularity</option>
             <option id="title" value="title">Title</option>
           </select>
       </div>
-      <!--BOX WITH RATES AND LIKES-->
-      <div class="photographer-rate">
-        <p class="photographer-rate-likes">297 081</p>
-        <i class="fas fa-heart" aria-label="likes" aria-hidden="true"></i>
-        <span class="photographer-rate-price"></span>
-      </div>
+    
       <!--FORM-->
       <div id="contact_modal" class="bground">
         <div class="modal" role="dialog" aria-hidden="true" aria-labelledby="contact form"
@@ -80,6 +75,13 @@
 
     </template>
 
+    <!--BOX WITH RATES AND LIKES-->
+    <div class="photographer-rate">
+      <p id="sumLikes" class="photographer-rate-likes"></p>
+      <i class="fas fa-heart" aria-label="likes" aria-hidden="true"></i>
+      <span id="rate" class="photographer-rate-price"></span>
+    </div>
+
   </main>
 
   <!--GALLERY-->
@@ -91,8 +93,10 @@
         </video>
         <div class="image-text">
           <p class="image-title"></p>
-          <span class="likes"> </span>
-          <i class="fas fa-heart" aria-label="likes" aria-hidden="true"></i>
+          <span id="likes" class="likes"> </span>
+          <button id="likes-button">
+            <i class="fas fa-heart" aria-label="likes" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
     </template>

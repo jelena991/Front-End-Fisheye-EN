@@ -32,6 +32,7 @@ function displayData(photographers) {
     main.appendChild(userCardDOM);
 };
 
+
 function displayMedia(media) {
     const gallery = document.getElementById("gallery");
     console.log ("media in displayMedia are: ", media)
@@ -45,7 +46,8 @@ function displayMedia(media) {
         gallery.appendChild(mediaDOM);
 
         mediaArray.push(mediaModel);
-    }); 
+    });
+
     return mediaArray;
 };
 
@@ -69,8 +71,6 @@ function changeOrder(filteredMedia) {
 }
 
 function orderBy(filteredMedia, sortValue){
-
-    console.log('POZVANO');
     
     if (sortValue === 'date'){
          removeMedia();
@@ -127,6 +127,26 @@ function byDate(a, b){
 }
 
 
+function sumLikes(media) {
+
+    const sum = media.reduce((total, { likes }) => {
+        total += likes;
+        return total;
+      }, 0);
+
+      console.log("sum of all likes is: ", sum);
+
+    const likesElement = document.getElementById("sumLikes");
+    likesElement.textContent = sum; 
+}
+
+function displayRate (price) {
+    const rate = document.getElementById("rate");
+    rate.textContent =`$${price}/day`; 
+}
+
+
+
 async function init() {
     // Retreive photographer data
     const { photographers, media } = await getData();
@@ -139,10 +159,18 @@ async function init() {
  
     const filteredMedia = media.filter(item => item.photographerId.toString() === photographerId);
 
+    //DISPLAY GALLERY
     const mediaArray = displayMedia(filteredMedia);
     displayLightbox(mediaArray);
 
     changeOrder(filteredMedia);
+
+    sumLikes(filteredMedia);
+
+    const price = photographers.filter(item => item.id.toString() === photographerId)[0].price;
+    displayRate(price);
+
+    
     
  };
 
