@@ -15,6 +15,8 @@ async function getData() {
 
 
 function displayData(photographers) {
+
+    console.log("PRAVIMO FOTOGRAFERA");
     const main = document.getElementById("main");
     const template = document.getElementById('photographer-page-template');
 

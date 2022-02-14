@@ -55,7 +55,6 @@ class Media {
         console.log("SUM IS", this.likes);
 
         //add likes to box 
-
         const currentLikes = document.getElementById('sumLikes').textContent++;
         console.log("CURRENT LIKES", currentLikes);
     }

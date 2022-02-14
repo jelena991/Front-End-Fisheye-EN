@@ -1,6 +1,17 @@
 function displayModal() {
     const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
+
+    const submitBtn = document.getElementById("submitBtn");
+    const formData = document.querySelector("form");
+
+    submitBtn.addEventListener("click", function(event) {
+        event.preventDefault();
+        logToConsole();
+        formData.reset();
+        closeModal();
+    }); 
+    
 }
 
 function closeModal() {
@@ -9,19 +20,23 @@ function closeModal() {
 }
 
 
-
-/* function logToConsole() {
-    
+function logToConsole() {
     const formData = document.querySelector("form");
-    const firstName = formData.elements['name'];
-    //const element = formData.elements;
 
-    console.log ("First name: ", firstName.value);
+    const formElement = formData.elements;
 
-    //console.log ("Last name: ", element.lastName.value);
-    //console.log ("Email: ", element.email.value);
-    //console.log ("Message: ", element.message.value);
-} */
+    console.log ("First name: ", formElement.first.value);
+    console.log ("Last name: ", formElement.last.value);
+    console.log ("Email: ", formElement.email.value);
+    console.log ("Message: ", formElement.message.value);
+} 
+
+
+
+
+
+
+
 
   /**
     * ON DIALOG OPEN, SET FOCUS:
