@@ -1,5 +1,5 @@
     async function getPhotographers() {
-        let response = await fetch ('http://127.0.0.1:5501/data/photographers.json');
+        let response = await fetch ('/data/photographers.json');
 
         if (!response.ok){
         throw new Error("HTTP error" + response.status);

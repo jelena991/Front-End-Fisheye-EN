@@ -1,6 +1,6 @@
 //Add JavaScript code linked to the photographer.html page
 async function getData() {
-    let response = await fetch ('http://127.0.0.1:5501/data/photographers.json');
+    let response = await fetch ('/data/photographers.json');
 
     if (!response.ok){
     throw new Error("HTTP error" + response.status);
@@ -60,13 +60,14 @@ function displayNameInForm(name){
 
 
 function displayLightbox(mediaArray) {
-
+    const lightbox = document.getElementById('gallery-lightbox');
     const template = document.getElementById('lightbox-template');
 
-    const lightboxModel = new Gallery(mediaArray, template);
-
-    const rootElement = document.getElementById('gallery-lightbox');
-    lightboxModel.create(rootElement);
+    mediaArray.forEach ((media) => {
+        const lightboxModel = new Lightbox (media.image, media.video, media.id, media.photographerId);
+        const lightboxDOM = lightboxModel.create(template);
+        lightbox.appendChild(lightboxDOM);
+    });
 }
 
 function changeOrder(filteredMedia) {
@@ -79,17 +80,15 @@ function changeOrder(filteredMedia) {
 }
 
 function orderBy(filteredMedia, sortValue){
-    
+    removeMedia();
+
     if (sortValue === 'date'){
-         removeMedia();
     displayMedia(filteredMedia.sort(byDate));
     console.log('ordered by date');
     } else if (sortValue === 'popularity') {
-        removeMedia();
         displayMedia(filteredMedia.sort(byPopularity));
         console.log('ordered by popularity');   
-    } else if (sortValue === 'title') {
-        removeMedia();
+    } else if (sortValue ==='title') {
         displayMedia(filteredMedia.sort(byTitle));
         console.log('ordered by title');
     }

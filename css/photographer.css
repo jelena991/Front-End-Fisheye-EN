@@ -251,3 +251,17 @@ form input {
 .gallery-lightbox {
   display: none;
 }
+
+.lightbox-media-item {
+  width: 15rem;
+  height: 15rem;
+}
+.probna {
+  display: flex;
+  align-items: center;
+  width: 100px;
+}
+.probna-slika {
+  width: 50;
+  height: 50rem;
+}

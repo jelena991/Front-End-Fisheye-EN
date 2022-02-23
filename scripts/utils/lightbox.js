@@ -8,48 +8,39 @@ function closeLightbox() {
     modal.style.display = "none";
 }
 
-  
-class Gallery {
-    constructor (media, templateGalleryItem){
-        /*ovaj media je arej objekata klase iz medija.js*/
-        this.media = media;
-        this.templateGalleryItem = templateGalleryItem;
-        this.currentIndex = 0;
+//lightbox gallery
+class Lightbox {
+    constructor (image, video, id, photographerId) {
+        this.image = image;
+        this.video = video;
+        this.id = id;
+        this.photographerId = photographerId;
     }
 
-    create (rootElement){
-        for (let i = 0; i < this.media.length; i++){
-            const item = this.media[i];
-            const galleryItem = this.templateGalleryItem.content.cloneNode(true); 
-            const image = galleryItem.querySelector("img");
-            const video = galleryItem.querySelector("video");
+    create (template) {
+        const element = template.content.cloneNode(true);
+        const imageElement = element.querySelector('img');
+        const videoElement = element.querySelector('video');
 
-            if (item.image){
-                video.remove();
-                image.src = `assets/samplePhotos/${item.photographerId}/${item.image}`;
+        if (this.image) {
+            videoElement.remove();
+            const image = `assets/samplePhotos/${this.photographerId}/${this.image}`;
 
-                image.id = item.id;
-            } else {
-                image.remove();
-                video.src = `assets/samplePhotos/${item.photographerId}/${item.video}`;
-            }
+            element.querySelector('img').setAttribute("src", image);
+            element.querySelector('img').setAttribute("id", this.id);
+            
+        } else {
+            imageElement.remove();
+            const video = `assets/samplePhotos/${this.photographerId}/${this.video}`;
 
-            galleryItem.addEventListener('click', () => {
-                console.log('clicked')
-                this.viewMedia(item.id);
-            });
+            element.querySelector('video').setAttribute("src", video);
+            element.querySelector('video').setAttribute("id", this.id);
 
-            rootElement.appendChild(galleryItem);
         }
-    }
-    viewMedia (id) {
-        const modal = document.getElementById("gallery-lightbox");
-	    modal.style.display = "block";
 
-        // displejati lightbox
-        // fokusirati sliku sa html id-em koji je predat funkciji da bude u centru
+        return element;
     }
+
+    
 }
-
-
 
