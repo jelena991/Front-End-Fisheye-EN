@@ -60,15 +60,28 @@ function displayNameInForm(name){
 
 
 function displayLightbox(mediaArray) {
+
     const lightbox = document.getElementById('gallery-lightbox');
     const template = document.getElementById('lightbox-template');
+
+    //Gallery in array (no template)
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    console.log("GALLERY ITEMS ARE:", galeryItems)
+    for (let i = 0; i < galleryItems.length; i++) {
+        galleryItems[i].addEventListener('click', () => {
+        
+        })
+    } 
 
     mediaArray.forEach ((media) => {
         const lightboxModel = new Lightbox (media.image, media.video, media.id, media.photographerId);
         const lightboxDOM = lightboxModel.create(template);
         lightbox.appendChild(lightboxDOM);
+
     });
 }
+
+
 
 function changeOrder(filteredMedia) {
     const select = document.getElementById('orderBy');

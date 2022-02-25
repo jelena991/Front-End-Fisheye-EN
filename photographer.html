@@ -88,8 +88,8 @@
   <div id="gallery">
     <template id="gallery-template">
       <div class="image-container">
-        <img src="" alt="">
-        <video src="" type="video/mp4" autoplay muted>
+        <img class="gallery-item" src="" alt="" type="image">
+        <video class="gallery-item" src="" type="video/mp4" autoplay muted>
         </video>
         <div class="image-text">
           <p class="image-title"></p>
@@ -102,29 +102,20 @@
     </template>
   </div>
 
-  <div class="probna" >
-    <img class="probna-slika"src="assets/photographers/MarcelNikolic.jpg" alt="">
-    <i  class="fas fa-times" aria-label="Close image"></i>
-    <i  class="fas fa-chevron-left"></i>
-    <i  class="fas fa-chevron-right"></i>
-  </div>
   <!--LIGHTBOX-->
   <div id="gallery-lightbox" class="gallery-lightbox">
     <template id="lightbox-template">
-
-      <div id="gallery-lightbox-media" role="dialog" aria-label="Image closeup">
-        <img class="lightbox-media-item" src="" alt="">
-        <video  class="lightbox-media-item"  src="" type="video/mp4" autoplay muted>
+      <div id="gallery-lightbox-media" class="lightbox-media" role="dialog" aria-label="Image closeup">
+        <img class="lightbox-media-item" src="" alt="" type="image">
+        <video class="lightbox-media-item" src="" type="video/mp4" autoplay muted>
       </div>
     </template>
     <div class="gallery-lightbox-controls">
-     
+      <i id="closeIcon" class="fas fa-times" aria-label="Close dialog" tabindex="0" onclick="closeLightbox()" ></i>
+      <i id="rightArr" class="fas fa-chevron-right" aria-label="Next image" tabindex="0"></i>
+      <i id="leftArr" class="fas fa-chevron-left" aria-label="Previous image" tabindex="0"></i>
     </div>
-
-
   </div>
-
-
 
   <script src="scripts/pages/photographer.js"></script>
   <script src="scripts/factories/Photographer.js"></script>

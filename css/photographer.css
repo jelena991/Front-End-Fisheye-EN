@@ -252,16 +252,47 @@ form input {
   display: none;
 }
 
-.lightbox-media-item {
-  width: 15rem;
-  height: 15rem;
+#gallery-lightbox {
+  background-color: white;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
 }
-.probna {
-  display: flex;
-  align-items: center;
-  width: 100px;
+#gallery-lightbox-media img {
+  height: 85%;
+  object-fit: contain;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
 }
-.probna-slika {
-  width: 50;
-  height: 50rem;
+
+
+i.fas.fa-times {
+  color: #901c1c;
+  cursor: pointer;
+  position: absolute;
+  top: 45px;
+  right: 250px;
+  font-size: 3rem;
+}
+
+i.fas.fa-chevron-left,
+i.fas.fa-chevron-right {
+  color: #901c1c;
+  cursor: pointer;
+  position: absolute;
+  font-size: 3rem;
+  top: 50%;
+}
+
+i.fas.fa-chevron-left {
+  left: 250px;
+}
+i.fas.fa-chevron-right {
+  right: 250px;
+ 
 }

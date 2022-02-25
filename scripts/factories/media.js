@@ -24,9 +24,8 @@ class Media {
             element.querySelector('img').setAttribute("id", this.id);
 
             //EVENT LISTENER FOR DISPLAYING LIGHTBOX 
-            imageElement.addEventListener("click", this.viewMedia.bind(this));
+            //imageElement.addEventListener("click", this.viewMedia.bind(this));
 
-           
             videoElement.remove();
         } else {
             const video = `assets/samplePhotos/${this.photographerId}/${this.video}`;
@@ -48,7 +47,7 @@ class Media {
         if (element.querySelector('span')){
             element.querySelector('span').textContent = this.likes;
             element.querySelector('span').setAttribute('id', `S${this.id}`); 
-    
+
             element.getElementById('likes-button').addEventListener("click", this.addLikes.bind(this));
         }
 
@@ -69,11 +68,9 @@ class Media {
     viewMedia (id) {
         const modal = document.getElementById("gallery-lightbox");
 	    modal.style.display = "block";
+        const activeSlide = document.getElementById(`L${this.id}`);
+        console.log("ACTIVE SLIDE", activeSlide);
+        activeSlide.style.display = "block";
         console.log("CURRENT PICTURE IS", this.id);
-        
-        // displejati lightbox
-        // fokusirati sliku sa html id-em koji je predat funkciji da bude u centru
     }
-
-
 }

@@ -6,6 +6,7 @@ function openLightbox() {
 function closeLightbox() {
     const modal = document.getElementById("gallery-lightbox");
     modal.style.display = "none";
+
 }
 
 //lightbox gallery
@@ -27,7 +28,8 @@ class Lightbox {
             const image = `assets/samplePhotos/${this.photographerId}/${this.image}`;
 
             element.querySelector('img').setAttribute("src", image);
-            element.querySelector('img').setAttribute("id", this.id);
+            element.querySelector('img').setAttribute("id", `L${this.id}`);
+            element.querySelector('img').style.display = "none";
             
         } else {
             imageElement.remove();
@@ -35,12 +37,51 @@ class Lightbox {
 
             element.querySelector('video').setAttribute("src", video);
             element.querySelector('video').setAttribute("id", this.id);
+            element.querySelector('video').style.display = "none";
 
         }
 
         return element;
     }
-
-    
 }
 
+const prevBtn = document.querySelector("leftArr");
+const nextBtn = document.querySelector("rightArr");
+const galeryItems = document.querySelectorAll('.gallery-item');
+
+for (let i = 0; i < galeryItems.length; i++) {
+   let currentIndex = i;
+   
+if (currentIndex == 0) {
+    prevBtn.style.display = "none";
+}
+
+if (currentIndex >= galleryItem.length - 1) {
+    nextBtn.style.display = "none";
+}
+
+prevBtn.addEventListener('click', (event) => {
+    console.log("PREV CLICKED", prevBtn);
+    previous();
+}); 
+
+ //Previous button
+function previous() {
+
+}
+
+  prevBtn.onclick = () => {
+    previous();
+}
+
+//Next button
+function next() {
+    currentIndex++;
+  
+  }
+
+  nextBtn.onclick = () => {
+    next();
+  }
+
+}
